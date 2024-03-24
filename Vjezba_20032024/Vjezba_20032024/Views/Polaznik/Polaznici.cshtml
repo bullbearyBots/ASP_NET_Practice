@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Vjezba_20032024.Models.ViewModel.PolaznikViewModel>
+
+@{
+    ViewData["Title"] = "Polaznici";
+}
+
+<h1>Polaznici</h1>
+
+<p>
+    <a asp-action="SpremiPolaznika">Dodaj polaznika</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prezime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Oib)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prezime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Oib)
+            </td>
+            <td>
+                @Html.ActionLink("Uredi", "UrediPolaznika", new { id=item.Id }) |
+                @Html.ActionLink("Detalji", "DohvatiPolaznika", new { id=item.Id }) |
+                @Html.ActionLink("Obriši", "ObrisiPolaznika", new { id=item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

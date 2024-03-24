@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Vjezba_18032024.props" />
+</Project>
